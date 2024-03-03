@@ -1,0 +1,26 @@
+@font-face {
+  src: url(./fonts/Figtree-Bold.woff2) format("woff2"),
+    url(./fonts/Figtree-Bold.woff) format("woff");
+  font-family: "Figtree Bold";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  src: url(./fonts/Figtree-Medium.woff2) format("woff2"),
+    url(./fonts/Figtree-Medium.woff) format("woff");
+  font-family: "Figtree Medium";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  src: url(./fonts/Figtree-Regular.woff2) format("woff2"),
+    url(./fonts/Figtree-Regular.woff) format("woff");
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}

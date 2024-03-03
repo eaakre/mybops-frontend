@@ -1,1 +1,0 @@
-# mybops-frontend
