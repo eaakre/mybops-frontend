@@ -1,0 +1,84 @@
+.nav {
+  display: flex;
+  position: relative;
+}
+.nav__menu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: #f15025;
+  font-size: 24px;
+}
+
+.nav__link.active:not(.nav__avatar) {
+  border-bottom: 2px solid #000;
+}
+
+.nav__avatar-wrapper {
+  border: 2px solid #f15025;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+  width: 50px;
+  height: 50px;
+}
+
+.nav__avatar {
+  height: 50px;
+  width: 50px;
+}
+
+.nav__mobile-menu {
+  display: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 98;
+}
+
+@media only screen and (max-width: 768px) {
+  .nav__menu {
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    left: 768px;
+    top: 0;
+    bottom: 0;
+    padding-top: 100px;
+    background-color: #fff;
+    transition: 0.5s ease-in-out;
+  }
+  .nav__menu.open {
+    left: 0;
+    transition: 0.5s ease-in-out;
+  }
+  .nav__mobile-menu {
+    display: flex;
+    right: 30px;
+    top: 35px;
+    color: #f15025;
+  }
+  .nav__mobile-menu.open {
+    position: fixed;
+    display: flex;
+    right: 30px;
+    top: 32px;
+    color: #f15025;
+  }
+  .nav__mobile-menu svg {
+    height: 25px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .header__button {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}

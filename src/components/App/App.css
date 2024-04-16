@@ -8,3 +8,13 @@
   flex-direction: column;
   margin: 0 auto;
 }
+
+button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #f15025;
+  border: 2px solid #f15025;
+  border-radius: 4px;
+  padding: 5px 15px;
+}

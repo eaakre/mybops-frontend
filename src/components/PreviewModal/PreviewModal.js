@@ -9,7 +9,7 @@ const PreviewModal = ({ selectedCard, onClose }) => {
           <img src={close} alt="Close modal button" />
         </button>
         <img
-          src={selectedCard.image}
+          src={selectedCard.images[0].url}
           alt={selectedCard.name}
           className="modal__image"
         />
