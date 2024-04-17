@@ -11,13 +11,18 @@
   width: 250px;
   height: 250px;
 }
+.card__title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0 0;
+}
 
 .card__title {
   font-size: 18px;
   line-height: 22px;
   font-weight: 500;
-  margin-bottom: 0;
   text-transform: uppercase;
+  margin: 0;
 }
 
 .card__subtitle {
@@ -26,4 +31,21 @@
   margin: 0;
   font-style: italic;
   text-transform: capitalize;
+}
+
+.card__like-button {
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  padding: 0 5px;
+}
+
+.card__like-button_liked {
+  fill: rgb(0, 0, 0);
+}
+
+.card__like-button_disliked {
+  fill: transparent;
 }

@@ -2,10 +2,14 @@ import "./About.css";
 import { songUrl, artistUrl } from "../../utils/constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faListOl } from "@fortawesome/free-solid-svg-icons";
+import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const list = <FontAwesomeIcon icon={faListOl} />;
 
-function About({ item, onCardClick }) {
+function About({ onSongsTab, onArtistsTab, onSigninModal }) {
+  const currentUser = useContext(CurrentUserContext);
   return (
     <main className="about">
       <h1 className="about__title">Your music. Your history.</h1>
@@ -20,7 +24,18 @@ function About({ item, onCardClick }) {
             Find the songs that have been on repeat for you. Are you a
             trailblazer?
           </p>
-          <button className="section__button">Go To Songs</button>
+          {currentUser.loggedIn ? (
+            <NavLink
+              exact
+              to="/songs"
+              className="section__button"
+              onClick={onSongsTab}
+            >
+              Go To Songs
+            </NavLink>
+          ) : (
+            <button onClick={onSigninModal}>Login To See Your Songs</button>
+          )}
         </div>
         <img
           src={songUrl}
@@ -36,7 +51,18 @@ function About({ item, onCardClick }) {
             These artists and bands have dominated your airwaves lately. Who is
             on the top of your charts?
           </p>
-          <button className="section__button">Go To Artists</button>
+          {currentUser.loggedIn ? (
+            <NavLink
+              exact
+              to="/artists"
+              className="section__button"
+              onClick={onArtistsTab}
+            >
+              Go To Artists
+            </NavLink>
+          ) : (
+            <button onClick={onSigninModal}>Login To See Your Artists</button>
+          )}
         </div>
         <img
           src={artistUrl}

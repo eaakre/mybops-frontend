@@ -14,19 +14,9 @@ const LoginModal = ({ onClose, onSignupModal, handleLogin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    handleLogin();
     console.log("logged in. Connect to Spotify Oauth.");
     onClose();
-    if (!email || !password) {
-      return setMessage("Please enter a valid email and password.");
-    }
-    // handleLogin(email, password)
-    //   .then(() => {
-    //     resetForm();
-    //   })
-    //   .catch((err) => {
-    //     setMessage(err.message || "Something went wrong.");
-    //     console.log(err);
-    //   });
   };
   return (
     <ModalWithForm

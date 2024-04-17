@@ -18,7 +18,7 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [activeTab, setActiveTab] = useState("");
   const [selectedCard, setSelectedCard] = useState("");
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [ismenuIcon, setIsMenuIcon] = useState(true);
 
@@ -75,6 +75,18 @@ function App() {
     }
   };
 
+  const handleCardLike = (id, isLiked) => {
+    console.log(id);
+  };
+
+  const handleLogin = () => {
+    setLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    setLoggedIn(false);
+  };
+
   const handleAccessToken = () => {
     getAccessToken().then((data) => {
       console.log(data);
@@ -102,11 +114,16 @@ function App() {
         {/* <Preloader /> */}
         <Switch>
           <Route exact path="/">
-            <About />
+            <About
+              onSigninModal={handleSigninModal}
+              onSongsTab={handleSongsTab}
+              onArtistsTab={handleArtistsTab}
+            />
           </Route>
           <ProtectedRoute loggedIn={loggedIn}>
             <Main
               onCardClick={handlePreviewModal}
+              onCardLike={handleCardLike}
               onConfirmModal={handleConfirmModal}
               activeTab={activeTab}
             />
@@ -126,9 +143,14 @@ function App() {
         {activeModal === "signup" && (
           <RegisterModal onClose={handleCloseModal} />
         )}
-        {activeModal === "signin" && <LoginModal onClose={handleCloseModal} />}
+        {activeModal === "signin" && (
+          <LoginModal handleLogin={handleLogin} onClose={handleCloseModal} />
+        )}
         {activeModal === "confirm" && (
-          <ConfirmModal onClose={handleCloseModal} />
+          <ConfirmModal
+            handleLogout={handleLogout}
+            onClose={handleCloseModal}
+          />
         )}
       </div>
     </CurrentUserContext.Provider>

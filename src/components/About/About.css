@@ -39,6 +39,20 @@
   border-bottom-right-radius: 4px;
 }
 
+.section__button {
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  background: #f15025;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  border: 2px solid #f15025;
+  border-radius: 4px;
+  padding: 5px 15px;
+}
+
 @media only screen and (max-width: 768px) {
   .about__section {
     flex-direction: column;

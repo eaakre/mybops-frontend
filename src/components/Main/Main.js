@@ -10,7 +10,7 @@ const bands = spotifyArtists.items;
 const tracks = spotifyTracks.items;
 console.log(tracks[0]);
 
-function Main({ onCardClick, onConfirmModal, activeTab }) {
+function Main({ onCardClick, onCardLike, onConfirmModal, activeTab }) {
   const [time, setTime] = useState("short");
 
   const handleShort = () => {
@@ -70,6 +70,7 @@ function Main({ onCardClick, onConfirmModal, activeTab }) {
               key={band.id}
               index={index + 1}
               onCardClick={onCardClick}
+              onCardLike={onCardLike}
             />
           ))}
         </section>

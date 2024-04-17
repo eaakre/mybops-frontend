@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const ConfirmModal = ({ onClose, onSignupModal, handleLogin }) => {
+const ConfirmModal = ({ onClose, handleLogout }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
+    handleLogout();
     console.log("logged out");
     onClose();
   };
