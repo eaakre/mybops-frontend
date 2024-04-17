@@ -27,6 +27,7 @@ function Main({ onCardClick, onConfirmModal, activeTab }) {
   return (
     <main className="main">
       {/* <ToggleButton /> */}
+      <h1 className="main__title">My {activeTab}</h1>
       {activeTab !== "profile" && (
         <div className="main__toggle">
           <button

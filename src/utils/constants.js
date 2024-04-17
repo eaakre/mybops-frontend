@@ -1,39 +1,8 @@
 export const songUrl =
   "https://images.unsplash.com/photo-1669937401545-c10155e96124?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+
 export const artistUrl =
   "https://images.unsplash.com/photo-1606614520047-8ad516d9d84b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
-export const bands = [
-  {
-    id: 1,
-    image: "https://i.scdn.co/image/ab676161000051741e0743a3e000215916f70238",
-    name: "Relient K",
-    genre: "Punk Rock",
-  },
-  {
-    id: 2,
-    image: "https://i.scdn.co/image/ab676161000051741182ae93b58a17bc688564fb",
-    name: "Switchfoot",
-    genre: "Alt Rock",
-  },
-  {
-    id: 3,
-    image: "https://i.scdn.co/image/ab676161000051747e98747e08d1ed8dd90f1f52",
-    name: "Mat Kearney",
-    genre: "Pop/Rock",
-  },
-  {
-    id: 4,
-    image: "https://i.scdn.co/image/ab676161000051745947965769c01214315fb28f",
-    name: "Cory Asbury",
-    genre: "Christian",
-  },
-  {
-    id: 5,
-    image: "https://i.scdn.co/image/ab676161000051743bcef85e105dfc42399ef0ba",
-    name: "Ed Sheeran",
-    genre: "Pop/Rock",
-  },
-];
 
 export const spotifyProfile = {
   display_name: "Erik Aakre",

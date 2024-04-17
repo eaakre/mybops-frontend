@@ -8,7 +8,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 const menuIcon = <FontAwesomeIcon icon={faBars} />;
 
-function Header({
+const Header = ({
   onSongsTab,
   onArtistsTab,
   onProfileTab,
@@ -18,7 +18,7 @@ function Header({
   onSignupModal,
   onSigninModal,
   loggedIn,
-}) {
+}) => {
   return (
     <div className="header">
       <div className="header__logo-wrapper">
@@ -34,10 +34,9 @@ function Header({
         toggleMenu={toggleMenu}
         isMenuOpen={isMenuOpen}
         ismenuIcon={ismenuIcon}
-        loggedIn={loggedIn}
       />
     </div>
   );
-}
+};
 
 export default Header;

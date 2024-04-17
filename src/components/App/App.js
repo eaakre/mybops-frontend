@@ -7,9 +7,9 @@ import LoginModal from "../LoginModal/LoginModal.js";
 import Preloader from "../Preloader/Preloader.js";
 import PreviewModal from "../PreviewModal/PreviewModal.js";
 import ConfirmModal from "../ConfirmModal/ConfirmModal.js";
-import Profile from "../Profile/Profile.js";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import RegisterModal from "../RegisterModal/RegisterModal.js";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useState } from "react";
 import { Switch, Route } from "react-router-dom/cjs/react-router-dom.js";
 import { getAccessToken } from "../../utils/api.js";
@@ -82,43 +82,56 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Header
-        onSongsTab={handleSongsTab}
-        onArtistsTab={handleArtistsTab}
-        onProfileTab={handleProfileTab}
-        isMenuOpen={isMenuOpen}
-        toggleMenu={toggleMenu}
-        ismenuIcon={ismenuIcon}
-        onSignupModal={handleSignupModal}
-        onSigninModal={handleSigninModal}
-        loggedIn={loggedIn}
-      />
-      {/* <Preloader /> */}
-      <Switch>
-        <Route exact path="/">
-          <About />
-        </Route>
-        <ProtectedRoute loggedIn={loggedIn}>
-          <Main
-            onCardClick={handlePreviewModal}
-            onConfirmModal={handleConfirmModal}
-            activeTab={activeTab}
+    <CurrentUserContext.Provider
+      value={{
+        loggedIn,
+      }}
+    >
+      <div className="App">
+        <Header
+          onSongsTab={handleSongsTab}
+          onArtistsTab={handleArtistsTab}
+          onProfileTab={handleProfileTab}
+          isMenuOpen={isMenuOpen}
+          toggleMenu={toggleMenu}
+          ismenuIcon={ismenuIcon}
+          onSignupModal={handleSignupModal}
+          onSigninModal={handleSigninModal}
+          loggedIn={loggedIn}
+        />
+        {/* <Preloader /> */}
+        <Switch>
+          <Route exact path="/">
+            <About />
+          </Route>
+          <ProtectedRoute loggedIn={loggedIn}>
+            <Main
+              onCardClick={handlePreviewModal}
+              onConfirmModal={handleConfirmModal}
+              activeTab={activeTab}
+            />
+          </ProtectedRoute>
+        </Switch>
+        {/* <button onClick={handleAccessToken}>Click</button> */}
+
+        <Footer />
+
+        {activeModal === "preview" && (
+          <PreviewModal
+            selectedCard={selectedCard}
+            onClose={handleCloseModal}
           />
-        </ProtectedRoute>
-      </Switch>
-      {/* <button onClick={handleAccessToken}>Click</button> */}
+        )}
 
-      <Footer />
-
-      {activeModal === "preview" && (
-        <PreviewModal selectedCard={selectedCard} onClose={handleCloseModal} />
-      )}
-
-      {activeModal === "signup" && <RegisterModal onClose={handleCloseModal} />}
-      {activeModal === "signin" && <LoginModal onClose={handleCloseModal} />}
-      {activeModal === "confirm" && <ConfirmModal onClose={handleCloseModal} />}
-    </div>
+        {activeModal === "signup" && (
+          <RegisterModal onClose={handleCloseModal} />
+        )}
+        {activeModal === "signin" && <LoginModal onClose={handleCloseModal} />}
+        {activeModal === "confirm" && (
+          <ConfirmModal onClose={handleCloseModal} />
+        )}
+      </div>
+    </CurrentUserContext.Provider>
   );
 }
 

@@ -1,6 +1,8 @@
 import "./Navigation.css";
 import myBopsLogo from "../../images/myBops.png";
 import avatar from "../../images/avatar.jpg";
+import React from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { spotifyProfile } from "../../utils/constants";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
@@ -22,9 +24,10 @@ function Navigation({
   ismenuIcon,
   loggedIn,
 }) {
+  const currentUser = React.useContext(CurrentUserContext);
   return (
     <>
-      {loggedIn ? (
+      {currentUser.loggedIn ? (
         <div className="nav">
           <div className={isMenuOpen ? "nav__menu open" : "nav__menu"}>
             <NavLink

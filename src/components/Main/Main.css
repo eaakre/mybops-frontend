@@ -5,6 +5,12 @@
   margin: 40px 20px;
 }
 
+.main__title {
+  margin: 0 0 10px;
+  color: #f15025;
+  text-transform: capitalize;
+}
+
 .main__toggle {
   display: flex;
   gap: 40px;

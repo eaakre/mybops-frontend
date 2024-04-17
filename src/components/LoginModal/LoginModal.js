@@ -14,6 +14,8 @@ const LoginModal = ({ onClose, onSignupModal, handleLogin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("logged in. Connect to Spotify Oauth.");
+    onClose();
     if (!email || !password) {
       return setMessage("Please enter a valid email and password.");
     }
@@ -28,7 +30,7 @@ const LoginModal = ({ onClose, onSignupModal, handleLogin }) => {
   };
   return (
     <ModalWithForm
-      name="garment"
+      name="login"
       title="Log In"
       buttonText="Log in"
       onClose={onClose}

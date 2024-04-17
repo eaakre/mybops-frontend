@@ -101,6 +101,6 @@
   }
 
   .nav__link.active:not(.nav__avatar) {
-    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
   }
 }
