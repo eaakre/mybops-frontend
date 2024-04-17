@@ -1,5 +1,4 @@
 import "./Main.css";
-import ToggleButton from "../ToggleButton/ToggleButton";
 import Card from "../Card/Card";
 import SongCard from "../SongCard/SongCard";
 import Profile from "../Profile/Profile";
@@ -26,7 +25,6 @@ function Main({ onCardClick, onCardLike, onConfirmModal, activeTab }) {
   };
   return (
     <main className="main">
-      {/* <ToggleButton /> */}
       <h1 className="main__title">My {activeTab}</h1>
       {activeTab !== "profile" && (
         <div className="main__toggle">
