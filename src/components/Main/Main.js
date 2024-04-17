@@ -7,11 +7,11 @@ import { useState } from "react";
 
 const bands = spotifyArtists.items;
 const tracks = spotifyTracks.items;
-console.log(tracks[0]);
 
 function Main({ onCardClick, onCardLike, onConfirmModal, activeTab }) {
   const [time, setTime] = useState("short");
 
+  // When connected to Spotify API, change call for songs/artists based on "time"
   const handleShort = () => {
     setTime("short");
   };

@@ -114,6 +114,7 @@ function App() {
         {/* <Preloader /> */}
         <Switch>
           <Route exact path="/">
+            {/* Main landing page for everyone, logged in users will have additional routes */}
             <About
               onSigninModal={handleSigninModal}
               onSongsTab={handleSongsTab}

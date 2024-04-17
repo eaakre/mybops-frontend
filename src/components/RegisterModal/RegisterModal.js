@@ -11,18 +11,10 @@ const RegisterModal = ({ onClose, handleRegister, onSigninModal }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // handleRegister(name, avatar, email, password)
-    //   .then(() => {
-    //     setMessage("");
-    //   })
-    //   .catch((err) => {
-    //     setMessage(err.message || "Something went wrong");
-    //     console.log(err.message);
-    //   });
   };
   return (
     <ModalWithForm
-      name="garment"
+      name="register"
       title="Sign up"
       buttonText="Next"
       onClose={onClose}

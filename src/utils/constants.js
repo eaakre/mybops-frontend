@@ -1,8 +1,24 @@
-export const songUrl =
-  "https://images.unsplash.com/photo-1669937401545-c10155e96124?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+export const songSection = {
+  title: "Your Favorite Songs",
+  description:
+    "Find the songs that have been on repeat for you. Are you a trailblazer?",
+  buttonText: "Go to Songs",
+  altButtonText: "Login To See Your Songs",
+  imageUrl:
+    "https://images.unsplash.com/photo-1669937401545-c10155e96124?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  imageAlt: "Man listening to music on headphones",
+};
 
-export const artistUrl =
-  "https://images.unsplash.com/photo-1606614520047-8ad516d9d84b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+export const artistSection = {
+  title: "Your Favorite Artists",
+  description:
+    "These artists and bands have dominated your airwaves lately. Who is on the top of your charts?",
+  buttonText: "Go To Artists",
+  altButtonText: "Login To See Your Artists",
+  imageUrl:
+    "https://images.unsplash.com/photo-1606614520047-8ad516d9d84b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  imageAlt: "musician singing and playing guitar",
+};
 
 export const spotifyProfile = {
   display_name: "Erik Aakre",

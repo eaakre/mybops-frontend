@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
+// Need to change to accommodate Spotify Oauth connection
 const LoginModal = ({ onClose, onSignupModal, handleLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
