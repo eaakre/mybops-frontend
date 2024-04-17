@@ -64,15 +64,25 @@ function Main({ onCardClick, onConfirmModal, activeTab }) {
       )}
       {activeTab === "artists" && (
         <section className="main__wrapper">
-          {bands.map((band) => (
-            <Card item={band} key={band.id} onCardClick={onCardClick} />
+          {bands.map((band, index) => (
+            <Card
+              item={band}
+              key={band.id}
+              index={index + 1}
+              onCardClick={onCardClick}
+            />
           ))}
         </section>
       )}
       {activeTab === "songs" && (
         <section className="main__wrapper tracks">
-          {tracks.map((track) => (
-            <SongCard item={track} key={track.id} onCardClick={onCardClick} />
+          {tracks.map((track, index) => (
+            <SongCard
+              item={track}
+              key={track.id}
+              index={index + 1}
+              onCardClick={onCardClick}
+            />
           ))}
         </section>
       )}

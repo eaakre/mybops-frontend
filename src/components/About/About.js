@@ -17,8 +17,8 @@ function About({ item, onCardClick }) {
         <div className="section__info">
           <h2 className="section__title">Your Favorite Songs</h2>
           <p className="about__text">
-            Check out your top hits from the last 4 weeks, 6 months, and all the
-            way up to 1 year!
+            Find the songs that have been on repeat for you. Are you a
+            trailblazer?
           </p>
           <button className="section__button">Go To Songs</button>
         </div>
@@ -33,8 +33,8 @@ function About({ item, onCardClick }) {
         <div className="section__info">
           <h2 className="section__title">Your Favorite Artists</h2>
           <p className="about__text">
-            Check out your top bands from the last 4 weeks, 6 months, and all
-            the way up to 1 year!
+            These artists and bands have dominated your airwaves lately. Who is
+            on the top of your charts?
           </p>
           <button className="section__button">Go To Artists</button>
         </div>

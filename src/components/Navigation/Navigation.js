@@ -1,12 +1,9 @@
 import "./Navigation.css";
-import myBopsLogo from "../../images/myBops.png";
-import avatar from "../../images/avatar.jpg";
 import React from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { spotifyProfile } from "../../utils/constants";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { IoClose, IoMenu } from "react-icons/io5";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 

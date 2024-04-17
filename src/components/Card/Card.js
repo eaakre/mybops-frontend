@@ -1,6 +1,6 @@
 import "./Card.css";
 
-function Card({ item, onCardClick }) {
+function Card({ item, index, onCardClick }) {
   return (
     <div className="card">
       <img
@@ -9,7 +9,9 @@ function Card({ item, onCardClick }) {
         onClick={() => onCardClick(item)}
         className="card__image"
       />
-      <p className="card__title">{item.name}</p>
+      <p className="card__title">
+        {index}. {item.name}
+      </p>
       <p className="card__subtitle">{item.genres[0]}</p>
     </div>
   );

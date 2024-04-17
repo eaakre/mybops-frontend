@@ -20,6 +20,8 @@
 .main__toggle-button {
   border: none;
   border-radius: 0;
+  background: transparent;
+  color: #f15025;
   font-size: 20px;
 }
 

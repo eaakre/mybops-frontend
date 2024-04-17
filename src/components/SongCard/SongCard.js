@@ -1,5 +1,5 @@
 import "./SongCard.css";
-function SongCard({ item, onCardClick }) {
+function SongCard({ item, index, onCardClick }) {
   return (
     <div className="songcard">
       <a
@@ -15,7 +15,9 @@ function SongCard({ item, onCardClick }) {
             className="songcard__image"
           />
           <div>
-            <p className="songcard__title">{item.name}</p>
+            <p className="songcard__title">
+              {index}. {item.name}
+            </p>
             <p className="songcard__subtitle">{item.artists[0].name}</p>
           </div>
         </div>

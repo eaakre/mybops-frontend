@@ -11,9 +11,11 @@
 
 button {
   border: none;
-  background: transparent;
+  background: #f15025;
   cursor: pointer;
-  color: #f15025;
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
   border: 2px solid #f15025;
   border-radius: 4px;
   padding: 5px 15px;
