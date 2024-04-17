@@ -1,6 +1,5 @@
 import "./Header.css";
 import myBopsLogo from "../../images/myBops.png";
-import avatar from "../../images/avatar.jpg";
 import Navigation from "../Navigation/Navigation";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,9 +14,7 @@ const Header = ({
   toggleMenu,
   isMenuOpen,
   ismenuIcon,
-  onSignupModal,
   onSigninModal,
-  loggedIn,
 }) => {
   return (
     <div className="header">

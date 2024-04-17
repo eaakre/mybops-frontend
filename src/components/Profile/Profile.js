@@ -1,9 +1,7 @@
 import "./Profile.css";
 import { spotifyProfile } from "../../utils/constants";
-import Card from "../Card/Card";
-import { bands } from "../../utils/constants";
 
-function Profile({ onCardClick, onConfirmModal }) {
+function Profile({ onConfirmModal }) {
   return (
     <div className="profile">
       <div className="profile__avatar">

@@ -1,4 +1,5 @@
 import "./SongCard.css";
+
 function SongCard({ item, index, onCardClick }) {
   return (
     <div className="songcard">

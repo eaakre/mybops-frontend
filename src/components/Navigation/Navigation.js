@@ -2,7 +2,6 @@ import "./Navigation.css";
 import React from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { spotifyProfile } from "../../utils/constants";
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
@@ -14,12 +13,10 @@ function Navigation({
   onSongsTab,
   onArtistsTab,
   onProfileTab,
-  onSignupModal,
   onSigninModal,
   toggleMenu,
   isMenuOpen,
   ismenuIcon,
-  loggedIn,
 }) {
   const currentUser = React.useContext(CurrentUserContext);
   return (
