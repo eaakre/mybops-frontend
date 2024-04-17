@@ -9,3 +9,11 @@ This project was based on the idea of "Spotify Wrapped" each December. Instead o
 ## Technologies used
 
 This project uses React.js as well as HTML and CSS to bring you your Spotify Data.
+
+## Screenshots
+
+![Homepage](src/images/homepage.png)
+
+![Songs Tab](src/images/songs.png)
+
+![Artists Tab](src/images/artists.png)
