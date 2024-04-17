@@ -25,10 +25,12 @@
   flex-direction: column;
   margin: auto;
   padding: 0 40px;
+  max-width: 350px;
 }
 
 .section__title {
   font-size: 28px;
+  margin-top: 0;
 }
 
 .section__image {

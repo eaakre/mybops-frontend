@@ -1,6 +1,7 @@
 import "./Navigation.css";
 import myBopsLogo from "../../images/myBops.png";
 import avatar from "../../images/avatar.jpg";
+import { spotifyProfile } from "../../utils/constants";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { IoClose, IoMenu } from "react-icons/io5";
@@ -48,7 +49,7 @@ function Navigation({
               className="nav__link"
               onClick={onProfileTab}
             >
-              Erik
+              {spotifyProfile.display_name}
             </NavLink>
             <NavLink
               exact
@@ -57,7 +58,11 @@ function Navigation({
               onClick={onProfileTab}
             >
               <div className="nav__avatar-wrapper">
-                <img src={avatar} alt="user avatar" className="nav__avatar" />
+                <img
+                  src={spotifyProfile.images[1].url}
+                  alt={spotifyProfile.display_name}
+                  className="nav__avatar"
+                />
               </div>
             </NavLink>
           </div>

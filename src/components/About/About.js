@@ -10,8 +10,8 @@ function About({ item, onCardClick }) {
     <main className="about">
       <h1 className="about__title">Your music. Your history.</h1>
       <p>
-        Find your listening history here. Login to see your Spotify data from
-        the last 4 weeks, 6 months, or 1 year.
+        Find your listening history here. Login with your Spotify Account to see
+        your Spotify data from the last 4 weeks, 6 months, or 1 year.
       </p>
       <section className="about__section">
         <div className="section__info">

@@ -81,4 +81,26 @@
     font-size: 20px;
     line-height: 24px;
   }
+
+  .nav__menu {
+    gap: 0;
+  }
+
+  .nav__link {
+    margin: 10px 0;
+    width: 100%;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+    text-align: center;
+  }
+  .nav__avatar {
+    border-bottom: none;
+    text-align: center;
+  }
+  .nav__avatar-wrapper {
+    margin: auto;
+  }
+
+  .nav__link.active:not(.nav__avatar) {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  }
 }
