@@ -1,4 +1,5 @@
 import "./AboutSection.css";
+import LoginButton from "../LoginButton/LoginButton";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
@@ -20,7 +21,8 @@ function AboutSection({ item, onTab, onSigninModal }) {
             {item.buttonText}
           </NavLink>
         ) : (
-          <button onClick={onSigninModal}>{item.altButtonText}</button>
+          // <button onClick={onSigninModal}>{item.altButtonText}</button>
+          <LoginButton />
         )}
       </div>
       <img src={item.imageUrl} alt={item.imageAlt} className="section__image" />

@@ -1,5 +1,6 @@
 import "./Navigation.css";
 import React from "react";
+import LoginButton from "../LoginButton/LoginButton";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { spotifyProfile } from "../../utils/constants";
 import { NavLink } from "react-router-dom";
@@ -82,13 +83,14 @@ function Navigation({
           >
             Sign Up
           </button> */}
-          <button
+          {/* <button
             type="text"
             className="header__button"
             onClick={onSigninModal}
           >
             Sign In
-          </button>
+          </button> */}
+          <LoginButton />
         </>
       )}
     </>
