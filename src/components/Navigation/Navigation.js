@@ -18,11 +18,12 @@ function Navigation({
   toggleMenu,
   isMenuOpen,
   ismenuIcon,
+  code,
 }) {
   const currentUser = React.useContext(CurrentUserContext);
   return (
     <>
-      {currentUser.loggedIn ? (
+      {code ? (
         <div className="nav">
           <div className={isMenuOpen ? "nav__menu open" : "nav__menu"}>
             <NavLink

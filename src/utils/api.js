@@ -6,6 +6,13 @@ function request(url, options) {
   return fetch(url, options).then(processServerResponse);
 }
 
+export const getCode = () => {
+  return request("http:localhost://3001/login", {
+    method: "POST",
+    headers: {},
+  }).then(processServerResponse);
+};
+
 export const getAccessToken = () => {
   return request("https://accounts.spotify.com/api/token", {
     method: "POST",

@@ -10,9 +10,11 @@ import ConfirmModal from "../ConfirmModal/ConfirmModal.js";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import RegisterModal from "../RegisterModal/RegisterModal.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom/cjs/react-router-dom.js";
 import { getAccessToken } from "../../utils/api.js";
+
+const code = new URLSearchParams(window.location.search).get("code");
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -21,6 +23,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [ismenuIcon, setIsMenuIcon] = useState(true);
+  const [spotifyCode, setSpotifyCode] = useState("");
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -87,11 +90,18 @@ function App() {
     setLoggedIn(false);
   };
 
+  const handleSpotifyCode = (code) => {
+    setSpotifyCode(code);
+  };
   const handleAccessToken = () => {
     getAccessToken().then((data) => {
       console.log(data);
     });
   };
+
+  useEffect(() => {
+    handleSpotifyCode(code);
+  }, [code]);
 
   return (
     <CurrentUserContext.Provider
@@ -110,7 +120,9 @@ function App() {
           onSignupModal={handleSignupModal}
           onSigninModal={handleSigninModal}
           loggedIn={loggedIn}
+          code={code}
         />
+        <p>{spotifyCode}</p>
         {/* <Preloader /> */}
         <Switch>
           <Route exact path="/">

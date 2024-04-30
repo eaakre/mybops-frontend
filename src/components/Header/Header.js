@@ -15,6 +15,7 @@ const Header = ({
   isMenuOpen,
   ismenuIcon,
   onSigninModal,
+  code,
 }) => {
   return (
     <div className="header">
@@ -31,6 +32,7 @@ const Header = ({
         toggleMenu={toggleMenu}
         isMenuOpen={isMenuOpen}
         ismenuIcon={ismenuIcon}
+        code={code}
       />
     </div>
   );
