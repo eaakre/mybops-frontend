@@ -85,11 +85,11 @@ function Main({ onCardClick, onCardLike, onConfirmModal, activeTab }) {
           ))}
         </section>
       )}
-      {activeTab === "profile" && (
+      {/* {activeTab === "profile" && (
         <section className="main__wrapper">
           <Profile onConfirmModal={onConfirmModal} />
         </section>
-      )}
+      )} */}
     </main>
   );
 }

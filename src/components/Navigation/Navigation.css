@@ -14,8 +14,18 @@
   font-size: 24px;
 }
 
-.nav__link.active:not(.nav__avatar) {
+.nav__link.active:not(.nav__avatar),
+.nav__link_button.activeTab.active {
   border-bottom: 2px solid #000;
+}
+
+.nav__link_button {
+  border: none;
+  background-color: transparent;
+  text-decoration: none;
+  color: #f15025;
+  font-size: 24px;
+  font-weight: 500;
 }
 
 .nav__avatar-wrapper {

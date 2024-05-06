@@ -2,10 +2,10 @@ import "./Navigation.css";
 import React from "react";
 import LoginButton from "../LoginButton/LoginButton";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { spotifyProfile } from "../../utils/constants";
-import { NavLink } from "react-router-dom";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 const barsIcon = <FontAwesomeIcon icon={faBars} />;
 const closeIcon = <FontAwesomeIcon icon={faX} />;
@@ -18,51 +18,39 @@ function Navigation({
   toggleMenu,
   isMenuOpen,
   ismenuIcon,
+  activeTab,
+  loggedIn,
   code,
 }) {
   const currentUser = React.useContext(CurrentUserContext);
   return (
     <>
-      {code ? (
+      {loggedIn ? (
         <div className="nav">
           <div className={isMenuOpen ? "nav__menu open" : "nav__menu"}>
             <NavLink
               exact
-              to="/songs"
-              className="nav__link"
+              to="/"
+              className={
+                activeTab === "songs"
+                  ? "nav__link_button activeTab"
+                  : "nav__link_button"
+              }
               onClick={onSongsTab}
             >
               Songs
             </NavLink>
             <NavLink
               exact
-              to="/artists"
-              className="nav__link"
+              to="/"
+              className={
+                activeTab === "artists"
+                  ? "nav__link_button activeTab"
+                  : "nav__link_button"
+              }
               onClick={onArtistsTab}
             >
               Artists
-            </NavLink>
-            <NavLink
-              exact
-              to="/profile"
-              className="nav__link"
-              onClick={onProfileTab}
-            >
-              {spotifyProfile.display_name}
-            </NavLink>
-            <NavLink
-              exact
-              to="/profile"
-              className="nav__link nav__avatar"
-              onClick={onProfileTab}
-            >
-              <div className="nav__avatar-wrapper">
-                <img
-                  src={spotifyProfile.images[1].url}
-                  alt={spotifyProfile.display_name}
-                  className="nav__avatar"
-                />
-              </div>
             </NavLink>
           </div>
 

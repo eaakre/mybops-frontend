@@ -4,6 +4,7 @@ import About from "../About/About.js";
 import Main from "../Main/Main.js";
 import Footer from "../Footer/Footer.js";
 import LoginModal from "../LoginModal/LoginModal.js";
+import Profile from "../Profile/Profile";
 import Preloader from "../Preloader/Preloader.js";
 import PreviewModal from "../PreviewModal/PreviewModal.js";
 import ConfirmModal from "../ConfirmModal/ConfirmModal.js";
@@ -18,9 +19,9 @@ const code = new URLSearchParams(window.location.search).get("code");
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
-  const [activeTab, setActiveTab] = useState("");
+  const [activeTab, setActiveTab] = useState("songs");
   const [selectedCard, setSelectedCard] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [ismenuIcon, setIsMenuIcon] = useState(true);
   const [spotifyCode, setSpotifyCode] = useState("");
@@ -119,6 +120,7 @@ function App() {
           ismenuIcon={ismenuIcon}
           onSignupModal={handleSignupModal}
           onSigninModal={handleSigninModal}
+          activeTab={activeTab}
           loggedIn={loggedIn}
           code={code}
         />
@@ -127,20 +129,26 @@ function App() {
         <Switch>
           <Route exact path="/">
             {/* Main landing page for everyone, logged in users will have additional routes */}
-            <About
-              onSigninModal={handleSigninModal}
-              onSongsTab={handleSongsTab}
-              onArtistsTab={handleArtistsTab}
-            />
+            {loggedIn ? (
+              <Main
+                onCardClick={handlePreviewModal}
+                onCardLike={handleCardLike}
+                onConfirmModal={handleConfirmModal}
+                activeTab={activeTab}
+              />
+            ) : (
+              <About
+                onSigninModal={handleSigninModal}
+                onSongsTab={handleSongsTab}
+                onArtistsTab={handleArtistsTab}
+              />
+            )}
           </Route>
-          <ProtectedRoute loggedIn={loggedIn}>
-            <Main
-              onCardClick={handlePreviewModal}
-              onCardLike={handleCardLike}
-              onConfirmModal={handleConfirmModal}
-              activeTab={activeTab}
-            />
-          </ProtectedRoute>
+          <Route exact path="/profile">
+            <section className="main__wrapper">
+              <Profile onConfirmModal={handleConfirmModal} />
+            </section>
+          </Route>
         </Switch>
         {/* <button onClick={handleAccessToken}>Click</button> */}
 
