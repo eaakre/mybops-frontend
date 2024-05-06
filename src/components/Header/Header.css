@@ -20,7 +20,7 @@
   height: 60px;
 }
 
-.header__link-wrapper,
+.header__link-wrapper:not(:last-child),
 .header__profile-wrapper {
   display: flex;
   justify-content: center;

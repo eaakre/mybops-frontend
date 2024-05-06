@@ -73,7 +73,7 @@ function App() {
   };
 
   const handleProfileTab = () => {
-    setActiveTab("profile");
+    // setActiveTab("profile");
     if (isMenuOpen) {
       toggleMenu();
     }

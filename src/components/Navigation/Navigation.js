@@ -2,7 +2,7 @@ import "./Navigation.css";
 import React from "react";
 import LoginButton from "../LoginButton/LoginButton";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-
+import { spotifyProfile } from "../../utils/constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
@@ -51,6 +51,28 @@ function Navigation({
               onClick={onArtistsTab}
             >
               Artists
+            </NavLink>
+            <NavLink
+              exact
+              to="/profile"
+              className="nav__link"
+              onClick={onProfileTab}
+            >
+              {spotifyProfile.display_name}
+            </NavLink>
+            <NavLink
+              exact
+              to="/profile"
+              className="nav__link nav__avatar"
+              onClick={onProfileTab}
+            >
+              <div className="nav__avatar-wrapper">
+                <img
+                  src={spotifyProfile.images[1].url}
+                  alt={spotifyProfile.display_name}
+                  className="nav__avatar"
+                />
+              </div>
             </NavLink>
           </div>
 
