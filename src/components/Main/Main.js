@@ -2,27 +2,34 @@ import "./Main.css";
 import Card from "../Card/Card";
 import SongCard from "../SongCard/SongCard";
 import Profile from "../Profile/Profile";
+import * as spotify from "../../utils/spotify";
 import { spotifyArtists, spotifyTracks } from "../../utils/constants";
 import { useState } from "react";
 
 const bands = spotifyArtists.items;
 const tracks = spotifyTracks.items;
 
-function Main({ onCardClick, onCardLike, onConfirmModal, activeTab }) {
-  const [time, setTime] = useState("short");
-
+function Main({
+  onCardClick,
+  onCardLike,
+  topItems,
+  activeTab,
+  handleTime,
+  time,
+}) {
   // When connected to Spotify API, change call for songs/artists based on "time"
   const handleShort = () => {
-    setTime("short");
+    handleTime("short");
   };
 
   const handleMedium = () => {
-    setTime("medium");
+    handleTime("medium");
   };
 
   const handleLong = () => {
-    setTime("long");
+    handleTime("long");
   };
+
   return (
     <main className="main">
       <h1 className="main__title">My {activeTab}</h1>
@@ -73,9 +80,9 @@ function Main({ onCardClick, onCardLike, onConfirmModal, activeTab }) {
           ))}
         </section>
       )}
-      {activeTab === "songs" && (
+      {activeTab === "tracks" && (
         <section className="main__wrapper tracks">
-          {tracks.map((track, index) => (
+          {topItems.map((track, index) => (
             <SongCard
               item={track}
               key={track.id}

@@ -25,14 +25,14 @@ function Navigation({
   const currentUser = React.useContext(CurrentUserContext);
   return (
     <>
-      {loggedIn ? (
+      {currentUser.loggedIn ? (
         <div className="nav">
           <div className={isMenuOpen ? "nav__menu open" : "nav__menu"}>
             <NavLink
               exact
               to="/"
               className={
-                activeTab === "songs"
+                activeTab === "tracks"
                   ? "nav__link_button activeTab"
                   : "nav__link_button"
               }
@@ -58,7 +58,7 @@ function Navigation({
               className="nav__link"
               onClick={onProfileTab}
             >
-              {spotifyProfile.display_name}
+              {currentUser.currentUser.display_name}
             </NavLink>
             <NavLink
               exact
@@ -68,8 +68,8 @@ function Navigation({
             >
               <div className="nav__avatar-wrapper">
                 <img
-                  src={spotifyProfile.images[1].url}
-                  alt={spotifyProfile.display_name}
+                  src={currentUser.currentUser.images[0].url}
+                  alt={currentUser.currentUser.display_name}
                   className="nav__avatar"
                 />
               </div>

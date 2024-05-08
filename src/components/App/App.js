@@ -4,6 +4,7 @@ import About from "../About/About.js";
 import Main from "../Main/Main.js";
 import Footer from "../Footer/Footer.js";
 import LoginModal from "../LoginModal/LoginModal.js";
+import PostSigninHandler from "../PostSigninHandler/PostSigninHandler.js";
 import Profile from "../Profile/Profile";
 import Preloader from "../Preloader/Preloader.js";
 import PreviewModal from "../PreviewModal/PreviewModal.js";
@@ -14,17 +15,23 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom/cjs/react-router-dom.js";
 import { getAccessToken } from "../../utils/api.js";
+import * as spotify from "../../utils/spotify.js";
 
 const code = new URLSearchParams(window.location.search).get("code");
 
 function App() {
+  const [accessToken, setAccessToken] = useState("");
   const [activeModal, setActiveModal] = useState("");
-  const [activeTab, setActiveTab] = useState("songs");
+  const [activeTab, setActiveTab] = useState("tracks");
+  const [time, setTime] = useState("medium");
+  const [currentUser, setCurrentUser] = useState({});
   const [selectedCard, setSelectedCard] = useState("");
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [ismenuIcon, setIsMenuIcon] = useState(true);
   const [spotifyCode, setSpotifyCode] = useState("");
+  const [topItems, setTopItems] = useState({});
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -59,7 +66,7 @@ function App() {
   };
 
   const handleSongsTab = () => {
-    setActiveTab("songs");
+    setActiveTab("tracks");
     if (isMenuOpen) {
       toggleMenu();
     }
@@ -73,7 +80,6 @@ function App() {
   };
 
   const handleProfileTab = () => {
-    // setActiveTab("profile");
     if (isMenuOpen) {
       toggleMenu();
     }
@@ -94,20 +100,61 @@ function App() {
   const handleSpotifyCode = (code) => {
     setSpotifyCode(code);
   };
-  const handleAccessToken = () => {
-    getAccessToken().then((data) => {
-      console.log(data);
-    });
+
+  const handleTime = (term) => {
+    setTime(term);
+  };
+
+  const handleAccessToken = (token) => {
+    return spotify
+      .getCurrentUser(token)
+      .then((res) => {
+        setIsLoading(true);
+        setCurrentUser({
+          test: "test",
+          display_name: res.display_name,
+          email: res.email,
+          followers: res.followers,
+          href: res.href,
+          id: res.id,
+          images: res.images,
+        });
+        // setAccessToken(token);
+        setLoggedIn(true);
+        localStorage.setItem("user", res.display_name);
+      })
+      .then(() => {
+        setIsLoading(false);
+      });
   };
 
   useEffect(() => {
     handleSpotifyCode(code);
   }, [code]);
 
+  useEffect(() => {
+    console.log(topItems);
+  }, [currentUser, topItems]);
+
+  useEffect(() => {
+    if (loggedIn) {
+      setIsLoading(true);
+      spotify
+        .getTopItems(activeTab, time)
+        .then((data) => {
+          setTopItems(data.items);
+        })
+        .then(() => {
+          setIsLoading(false);
+        });
+    }
+  }, [loggedIn, activeTab, time]);
+
   return (
     <CurrentUserContext.Provider
       value={{
         loggedIn,
+        currentUser,
       }}
     >
       <div className="App">
@@ -125,7 +172,7 @@ function App() {
           code={code}
         />
         <p>{spotifyCode}</p>
-        {/* <Preloader /> */}
+        {isLoading && <Preloader />}
         <Switch>
           <Route exact path="/">
             {/* Main landing page for everyone, logged in users will have additional routes */}
@@ -134,7 +181,10 @@ function App() {
                 onCardClick={handlePreviewModal}
                 onCardLike={handleCardLike}
                 onConfirmModal={handleConfirmModal}
+                topItems={topItems}
                 activeTab={activeTab}
+                handleTime={handleTime}
+                time={time}
               />
             ) : (
               <About
@@ -144,14 +194,15 @@ function App() {
               />
             )}
           </Route>
-          <Route exact path="/profile">
+          <ProtectedRoute exact path="/profile" loggedIn={loggedIn}>
             <section className="main__wrapper">
               <Profile onConfirmModal={handleConfirmModal} />
             </section>
+          </ProtectedRoute>
+          <Route exact path="/post-signin">
+            <PostSigninHandler handleAccessToken={handleAccessToken} />
           </Route>
         </Switch>
-        {/* <button onClick={handleAccessToken}>Click</button> */}
-
         <Footer />
 
         {activeModal === "preview" && (

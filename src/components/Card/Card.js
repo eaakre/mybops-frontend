@@ -1,9 +1,7 @@
 import "./Card.css";
-import { useContext, useState } from "react";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { useState } from "react";
 
 function Card({ item, index, onCardClick, onCardLike }) {
-  const currentUser = useContext(CurrentUserContext);
   const [liked, setLiked] = useState(false);
   const itemLikeButtonClassName = `card__like-button ${
     liked ? "card__like-button_liked" : "card__like-button_disliked"
