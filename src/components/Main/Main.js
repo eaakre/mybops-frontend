@@ -1,10 +1,8 @@
 import "./Main.css";
 import Card from "../Card/Card";
 import SongCard from "../SongCard/SongCard";
-import Profile from "../Profile/Profile";
 import * as spotify from "../../utils/spotify";
 import { spotifyArtists, spotifyTracks } from "../../utils/constants";
-import { useState } from "react";
 
 const bands = spotifyArtists.items;
 const tracks = spotifyTracks.items;
@@ -69,7 +67,8 @@ function Main({
       )}
       {activeTab === "artists" && (
         <section className="main__wrapper">
-          {bands.map((band, index) => (
+          {/* {bands.map((band, index) => ( */}
+          {topItems.map((band, index) => (
             <Card
               item={band}
               key={band.id}
@@ -82,6 +81,7 @@ function Main({
       )}
       {activeTab === "tracks" && (
         <section className="main__wrapper tracks">
+          {/* {tracks.map((track, index) => ( */}
           {topItems.map((track, index) => (
             <SongCard
               item={track}

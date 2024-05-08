@@ -14,7 +14,6 @@ import RegisterModal from "../RegisterModal/RegisterModal.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom/cjs/react-router-dom.js";
-import { getAccessToken } from "../../utils/api.js";
 import * as spotify from "../../utils/spotify.js";
 
 const code = new URLSearchParams(window.location.search).get("code");

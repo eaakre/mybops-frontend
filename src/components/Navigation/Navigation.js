@@ -2,7 +2,6 @@ import "./Navigation.css";
 import React from "react";
 import LoginButton from "../LoginButton/LoginButton";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { spotifyProfile } from "../../utils/constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";

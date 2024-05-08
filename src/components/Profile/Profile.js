@@ -1,6 +1,5 @@
 import "./Profile.css";
 import React from "react";
-import { spotifyProfile } from "../../utils/constants";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 function Profile({ onConfirmModal }) {
