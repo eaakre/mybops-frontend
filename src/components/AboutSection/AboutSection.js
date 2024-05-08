@@ -12,12 +12,7 @@ function AboutSection({ item, onTab, onSigninModal }) {
         <h2 className="section__title">{item.title}</h2>
         <p className="about__text">{item.description}</p>
         {currentUser.loggedIn ? (
-          <NavLink
-            exact
-            to="/songs"
-            className="section__button"
-            onClick={onTab}
-          >
+          <NavLink exact to="/" className="section__button" onClick={onTab}>
             {item.buttonText}
           </NavLink>
         ) : (

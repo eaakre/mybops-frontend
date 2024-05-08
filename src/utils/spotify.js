@@ -16,9 +16,9 @@ export const getCurrentUser = (access_token) => {
   });
 };
 
-export const getTopItems = (type, time) => {
+export const getTopArtists = (time) => {
   const access_token = localStorage.getItem("access_token");
-  return request(`${baseURL}/me/top/${type}?time_range=${time}_term`, {
+  return request(`${baseURL}/me/top/artists?time_range=${time}_term`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${access_token}`,
@@ -26,12 +26,12 @@ export const getTopItems = (type, time) => {
   });
 };
 
-export const getArtist = (id) => {
-  return request(`${baseURL}/artists/${id}`, {
+export const getTopTracks = (time) => {
+  const access_token = localStorage.getItem("access_token");
+  return request(`${baseURL}/me/top/tracks?time_range=${time}_term`, {
     method: "GET",
     headers: {
-      "content-type": "application/x-www-form-urlencoded",
-      Authorization: "Bearer ",
+      Authorization: `Bearer ${access_token}`,
     },
   });
 };

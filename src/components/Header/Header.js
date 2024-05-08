@@ -22,7 +22,7 @@ const Header = ({
   return (
     <div className="header">
       <div className="header__logo-wrapper">
-        <NavLink exact to="/">
+        <NavLink exact to="/about">
           <img src={myBopsLogo} alt="myBops logo" className="header__logo" />
         </NavLink>
       </div>

@@ -1,8 +1,9 @@
 .loginButton {
+  display: flex;
   border: none;
   background: #fff;
   text-decoration: none;
-  text-align: center;
+  justify-content: center;
   cursor: pointer;
   font-size: 18px;
   font-weight: 700;

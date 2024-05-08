@@ -1,16 +1,12 @@
 import "./Main.css";
 import Card from "../Card/Card";
 import SongCard from "../SongCard/SongCard";
-import * as spotify from "../../utils/spotify";
-import { spotifyArtists, spotifyTracks } from "../../utils/constants";
-
-const bands = spotifyArtists.items;
-const tracks = spotifyTracks.items;
 
 function Main({
   onCardClick,
   onCardLike,
-  topItems,
+  topTracks,
+  topArtists,
   activeTab,
   handleTime,
   time,
@@ -67,8 +63,7 @@ function Main({
       )}
       {activeTab === "artists" && (
         <section className="main__wrapper">
-          {/* {bands.map((band, index) => ( */}
-          {topItems.map((band, index) => (
+          {topArtists.map((band, index) => (
             <Card
               item={band}
               key={band.id}
@@ -81,8 +76,7 @@ function Main({
       )}
       {activeTab === "tracks" && (
         <section className="main__wrapper tracks">
-          {/* {tracks.map((track, index) => ( */}
-          {topItems.map((track, index) => (
+          {topTracks.map((track, index) => (
             <SongCard
               item={track}
               key={track.id}
@@ -92,11 +86,6 @@ function Main({
           ))}
         </section>
       )}
-      {/* {activeTab === "profile" && (
-        <section className="main__wrapper">
-          <Profile onConfirmModal={onConfirmModal} />
-        </section>
-      )} */}
     </main>
   );
 }

@@ -15,11 +15,11 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom/cjs/react-router-dom.js";
 import * as spotify from "../../utils/spotify.js";
+import { Redirect } from "react-router-dom/cjs/react-router-dom.min.js";
 
 const code = new URLSearchParams(window.location.search).get("code");
 
 function App() {
-  const [accessToken, setAccessToken] = useState("");
   const [activeModal, setActiveModal] = useState("");
   const [activeTab, setActiveTab] = useState("tracks");
   const [time, setTime] = useState("medium");
@@ -29,8 +29,8 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [ismenuIcon, setIsMenuIcon] = useState(true);
-  const [spotifyCode, setSpotifyCode] = useState("");
-  const [topItems, setTopItems] = useState({});
+  const [topArtists, setTopArtists] = useState([]);
+  const [topTracks, setTopTracks] = useState([]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -96,10 +96,6 @@ function App() {
     setLoggedIn(false);
   };
 
-  const handleSpotifyCode = (code) => {
-    setSpotifyCode(code);
-  };
-
   const handleTime = (term) => {
     setTime(term);
   };
@@ -128,26 +124,31 @@ function App() {
   };
 
   useEffect(() => {
-    handleSpotifyCode(code);
-  }, [code]);
-
-  useEffect(() => {
-    console.log(topItems);
-  }, [currentUser, topItems]);
+    console.log("test");
+  }, [currentUser]);
 
   useEffect(() => {
     if (loggedIn) {
       setIsLoading(true);
       spotify
-        .getTopItems(activeTab, time)
+        .getTopArtists(time)
         .then((data) => {
-          setTopItems(data.items);
+          setTopArtists(data.items);
         })
         .then(() => {
           setIsLoading(false);
         });
     }
   }, [loggedIn, activeTab, time]);
+
+  useEffect(() => {
+    if (loggedIn) {
+      // setIsLoading(true);
+      spotify.getTopTracks(time).then((data) => {
+        setTopTracks(data.items);
+      });
+    }
+  }, [loggedIn, time]);
 
   return (
     <CurrentUserContext.Provider
@@ -170,27 +171,29 @@ function App() {
           loggedIn={loggedIn}
           code={code}
         />
-        <p>{spotifyCode}</p>
         {isLoading && <Preloader />}
         <Switch>
+          <Route exact path="/about">
+            <About
+              onSigninModal={handleSigninModal}
+              onSongsTab={handleSongsTab}
+              onArtistsTab={handleArtistsTab}
+            />
+          </Route>
           <Route exact path="/">
             {/* Main landing page for everyone, logged in users will have additional routes */}
             {loggedIn ? (
               <Main
                 onCardClick={handlePreviewModal}
                 onCardLike={handleCardLike}
-                onConfirmModal={handleConfirmModal}
-                topItems={topItems}
+                topTracks={topTracks}
+                topArtists={topArtists}
                 activeTab={activeTab}
                 handleTime={handleTime}
                 time={time}
               />
             ) : (
-              <About
-                onSigninModal={handleSigninModal}
-                onSongsTab={handleSongsTab}
-                onArtistsTab={handleArtistsTab}
-              />
+              <Redirect to="/about" />
             )}
           </Route>
           <ProtectedRoute exact path="/profile" loggedIn={loggedIn}>

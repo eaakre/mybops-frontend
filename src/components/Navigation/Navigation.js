@@ -86,20 +86,6 @@ function Navigation({
         </div>
       ) : (
         <>
-          {/* <button
-            type="text"
-            className="header__button"
-            onClick={onSignupModal}
-          >
-            Sign Up
-          </button> */}
-          {/* <button
-            type="text"
-            className="header__button"
-            onClick={onSigninModal}
-          >
-            Sign In
-          </button> */}
           <LoginButton />
         </>
       )}
