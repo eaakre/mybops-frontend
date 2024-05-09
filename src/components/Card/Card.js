@@ -1,16 +1,16 @@
 import "./Card.css";
-import { useState } from "react";
+// import { useState } from "react";
 
 function Card({ item, index, onCardClick, onCardLike }) {
-  const [liked, setLiked] = useState(false);
-  const itemLikeButtonClassName = `card__like-button ${
-    liked ? "card__like-button_liked" : "card__like-button_disliked"
-  }`;
+  // const [liked, setLiked] = useState(false);
+  // const itemLikeButtonClassName = `card__like-button ${
+  //   liked ? "card__like-button_liked" : "card__like-button_disliked"
+  // }`;
 
-  const handleLike = (id, liked) => {
-    setLiked(!liked);
-    onCardLike(id, liked);
-  };
+  // const handleLike = (id, liked) => {
+  //   setLiked(!liked);
+  //   onCardLike(id, liked);
+  // };
   return (
     <div className="card">
       <img
@@ -23,7 +23,8 @@ function Card({ item, index, onCardClick, onCardLike }) {
         <p className="card__title">
           {index}. {item.name}
         </p>
-        <button
+        {/* Check to see if Spotify will allow likes outside of Spotify App */}
+        {/* <button
           className="card__like-button"
           onClick={() => handleLike(item.id, liked)}
         >
@@ -42,7 +43,7 @@ function Card({ item, index, onCardClick, onCardLike }) {
               strokeWidth="2"
             />
           </svg>
-        </button>
+        </button> */}
       </div>
       <p className="card__subtitle">{item.genres[0]}</p>
     </div>

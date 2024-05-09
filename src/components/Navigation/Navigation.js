@@ -1,5 +1,5 @@
 import "./Navigation.css";
-import React from "react";
+import React, { useEffect } from "react";
 import LoginButton from "../LoginButton/LoginButton";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,15 +13,13 @@ function Navigation({
   onSongsTab,
   onArtistsTab,
   onProfileTab,
-  onSigninModal,
   toggleMenu,
   isMenuOpen,
   ismenuIcon,
   activeTab,
-  loggedIn,
-  code,
 }) {
   const currentUser = React.useContext(CurrentUserContext);
+
   return (
     <>
       {currentUser.loggedIn ? (
@@ -67,7 +65,7 @@ function Navigation({
             >
               <div className="nav__avatar-wrapper">
                 <img
-                  src={currentUser.currentUser.images[0].url}
+                  src={currentUser.currentUser.images?.[0].url}
                   alt={currentUser.currentUser.display_name}
                   className="nav__avatar"
                 />

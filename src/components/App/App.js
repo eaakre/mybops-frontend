@@ -116,7 +116,6 @@ function App() {
           id: res.id,
           images: res.images,
         });
-        // setAccessToken(token);
         setLoggedIn(true);
         localStorage.setItem("user", res.display_name);
       })
@@ -126,9 +125,10 @@ function App() {
   };
 
   useEffect(() => {
-    // if (localStorage.getItem("access_token")) {
-    if (loggedIn) {
+    const prevAccessToken = localStorage.getItem("access_token");
+    if (prevAccessToken) {
       setIsLoading(true);
+      handleAccessToken(prevAccessToken);
       setLoggedIn(true);
       spotify.getTopTracks(time).then((data) => {
         setTopTracks(data.items);
@@ -142,7 +142,7 @@ function App() {
           setIsLoading(false);
         });
     }
-  }, [loggedIn, time]);
+  }, [time]);
 
   return (
     <CurrentUserContext.Provider
