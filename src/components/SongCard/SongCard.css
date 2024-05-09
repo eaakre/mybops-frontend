@@ -13,7 +13,7 @@
   padding: 10px;
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: flex-start;
   width: 100%;
   text-decoration: none;
   color: #000;

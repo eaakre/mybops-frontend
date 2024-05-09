@@ -8,7 +8,8 @@ function About({ onSongsTab, onArtistsTab, onSigninModal }) {
       <h1 className="about__title">Your music. Your history.</h1>
       <p>
         Find your listening history here. Login with your Spotify Account to see
-        your Spotify data from the last 4 weeks, 6 months, or 1 year.
+        your top songs and artists on Spotify from the last 4 weeks, 6 months,
+        or 1 year.
       </p>
       <AboutSection
         item={songSection}

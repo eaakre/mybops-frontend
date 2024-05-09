@@ -1,13 +1,23 @@
-import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import { useEffect } from "react";
 
 const ConfirmModal = ({ onClose, handleLogout }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     handleLogout();
-    console.log("logged out");
     onClose();
   };
+
+  useEffect(() => {
+    const close = (e) => {
+      if (e.keyCode === 27) {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", close);
+    return () => window.removeEventListener("keydown", close);
+  }, []);
+
   return (
     <ModalWithForm
       title="Log Out"

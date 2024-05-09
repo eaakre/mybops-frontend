@@ -5,18 +5,17 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 const LoginModal = ({ onClose, onSignupModal, handleLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
+  // const [message, setMessage] = useState("");
 
-  const resetForm = () => {
-    setEmail("");
-    setPassword("");
-    setMessage("");
-  };
+  // const resetForm = () => {
+  //   setEmail("");
+  //   setPassword("");
+  //   // setMessage("");
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     handleLogin();
-    console.log("logged in. Connect to Spotify Oauth.");
     onClose();
   };
   return (

@@ -1,7 +1,18 @@
 import "./PreviewModal.css";
 import close from "../../images/close.svg";
+import { useEffect } from "react";
 
 const PreviewModal = ({ selectedCard, onClose }) => {
+  useEffect(() => {
+    const close = (e) => {
+      if (e.keyCode === 27) {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", close);
+    return () => window.removeEventListener("keydown", close);
+  }, []);
+
   return (
     <div className={`modal`}>
       <div className="modal__content modal__item">

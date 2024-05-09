@@ -84,9 +84,9 @@ function App() {
     }
   };
 
-  const handleCardLike = (id, isLiked) => {
-    console.log(id);
-  };
+  // const handleCardLike = (id, isLiked) => {
+  //   console.log(id);
+  // };
 
   const handleLogin = () => {
     setLoggedIn(true);
@@ -94,6 +94,8 @@ function App() {
 
   const handleLogout = () => {
     setLoggedIn(false);
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("user");
   };
 
   const handleTime = (term) => {
@@ -124,12 +126,13 @@ function App() {
   };
 
   useEffect(() => {
-    console.log("test");
-  }, [currentUser]);
-
-  useEffect(() => {
+    // if (localStorage.getItem("access_token")) {
     if (loggedIn) {
       setIsLoading(true);
+      setLoggedIn(true);
+      spotify.getTopTracks(time).then((data) => {
+        setTopTracks(data.items);
+      });
       spotify
         .getTopArtists(time)
         .then((data) => {
@@ -138,15 +141,6 @@ function App() {
         .then(() => {
           setIsLoading(false);
         });
-    }
-  }, [loggedIn, activeTab, time]);
-
-  useEffect(() => {
-    if (loggedIn) {
-      // setIsLoading(true);
-      spotify.getTopTracks(time).then((data) => {
-        setTopTracks(data.items);
-      });
     }
   }, [loggedIn, time]);
 
@@ -185,7 +179,7 @@ function App() {
             {loggedIn ? (
               <Main
                 onCardClick={handlePreviewModal}
-                onCardLike={handleCardLike}
+                // onCardLike={handleCardLike}
                 topTracks={topTracks}
                 topArtists={topArtists}
                 activeTab={activeTab}
