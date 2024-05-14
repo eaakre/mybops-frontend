@@ -4,7 +4,7 @@ const baseURL = "https://api.spotify.com/v1";
 
 export const loginURL =
   process.env.NODE_ENV === "production"
-    ? "https://api.mybops.apps.dj/login"
+    ? "api.mybops.apps.dj/login"
     : "http://localhost:3001/login";
 
 function request(url, options) {
