@@ -202,6 +202,7 @@ function App() {
           <Route exact path="/error">
             <Error />
           </Route>
+          <Route render={() => <Redirect to={{ pathname: "/error" }} />} />
         </Switch>
         <Footer />
 
