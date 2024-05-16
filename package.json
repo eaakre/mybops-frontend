@@ -24,7 +24,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "deploy": "npm run build && scp -r ./build/* erik.aakre@mybops.apps.dj:/home/erik.aakre@mybops-frontend",
+    "deploy": "npm run build && scp -r ./build/* erik.aakre@mybops.apps.dj:/home/erik.aakre/mybops-frontend",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
