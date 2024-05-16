@@ -2,6 +2,7 @@ import "./App.css";
 import Header from "../Header/Header.js";
 import About from "../About/About.js";
 import Main from "../Main/Main.js";
+import Error from "../Error/Error.js";
 import Footer from "../Footer/Footer.js";
 import LoginModal from "../LoginModal/LoginModal.js";
 import PostSigninHandler from "../PostSigninHandler/PostSigninHandler.js";
@@ -197,6 +198,9 @@ function App() {
           </ProtectedRoute>
           <Route exact path="/post-signin">
             <PostSigninHandler handleAccessToken={handleAccessToken} />
+          </Route>
+          <Route exact path="/error">
+            <Error />
           </Route>
         </Switch>
         <Footer />
