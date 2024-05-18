@@ -96,6 +96,11 @@
     gap: 0;
   }
 
+  .nav__menu > .profile__logout-wrapper {
+    margin: 20px auto;
+    width: 80%;
+  }
+
   .nav__link,
   .nav__link_button {
     margin: 10px 0;

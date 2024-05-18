@@ -13,6 +13,7 @@ function Navigation({
   onSongsTab,
   onArtistsTab,
   onProfileTab,
+  onConfirmModal,
   toggleMenu,
   isMenuOpen,
   ismenuIcon,
@@ -71,6 +72,11 @@ function Navigation({
                 />
               </div>
             </NavLink>
+            <div className="profile__logout-wrapper">
+              <button className="profile__logout" onClick={onConfirmModal}>
+                Logout
+              </button>
+            </div>
           </div>
 
           <button

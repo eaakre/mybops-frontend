@@ -8,10 +8,15 @@ const refreshTokenParam = new URLSearchParams(window.location.search).get(
   "refresh_token"
 );
 
+const expiresInParam = new URLSearchParams(window.location.search).get(
+  "expires_in"
+);
+
 function PostSigninHandler({ handleAccessToken, handleRefreshToken }) {
   const getAccessToken = () => {
     localStorage.setItem("access_token", accessTokenParam);
     localStorage.setItem("refresh_token", refreshTokenParam);
+    localStorage.setItem("expires_in", expiresInParam);
     handleAccessToken(accessTokenParam);
   };
   if (accessTokenParam) {

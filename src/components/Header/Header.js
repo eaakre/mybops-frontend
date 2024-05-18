@@ -7,6 +7,7 @@ const Header = ({
   onSongsTab,
   onArtistsTab,
   onProfileTab,
+  onConfirmModal,
   toggleMenu,
   isMenuOpen,
   ismenuIcon,
@@ -28,6 +29,7 @@ const Header = ({
           onArtistsTab={onArtistsTab}
           onProfileTab={onProfileTab}
           onSigninModal={onSigninModal}
+          onConfirmModal={onConfirmModal}
           toggleMenu={toggleMenu}
           isMenuOpen={isMenuOpen}
           ismenuIcon={ismenuIcon}

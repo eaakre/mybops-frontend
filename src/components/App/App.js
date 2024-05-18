@@ -96,6 +96,8 @@ function App() {
   const handleLogout = () => {
     setLoggedIn(false);
     localStorage.removeItem("access_token");
+    localStorage.removeItem("refresh_token");
+    localStorage.removeItem("expires_in");
     localStorage.removeItem("user");
   };
 
@@ -157,6 +159,7 @@ function App() {
           onSongsTab={handleSongsTab}
           onArtistsTab={handleArtistsTab}
           onProfileTab={handleProfileTab}
+          onConfirmModal={handleConfirmModal}
           isMenuOpen={isMenuOpen}
           toggleMenu={toggleMenu}
           ismenuIcon={ismenuIcon}
