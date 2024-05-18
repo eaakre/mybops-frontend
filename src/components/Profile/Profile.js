@@ -1,6 +1,7 @@
 import "./Profile.css";
 import React from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import placeholderAvatar from "../../images/placeholder_avatar.png";
 
 function Profile({ onConfirmModal }) {
   const currentUser = React.useContext(CurrentUserContext);
@@ -8,7 +9,11 @@ function Profile({ onConfirmModal }) {
     <div className="profile">
       <div className="profile__avatar">
         <img
-          src={currentUser.currentUser.images[1].url}
+          src={
+            currentUser.currentUser.images[1]
+              ? currentUser.currentUser.images[1].url
+              : placeholderAvatar
+          }
           alt={currentUser.currentUser.display_name}
           className="profile__avatar-img"
         />

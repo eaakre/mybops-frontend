@@ -63,27 +63,35 @@ function Main({
       )}
       {activeTab === "artists" && (
         <section className="main__wrapper">
-          {topArtists.map((band, index) => (
-            <Card
-              item={band}
-              key={band.id}
-              index={index + 1}
-              onCardClick={onCardClick}
-              onCardLike={onCardLike}
-            />
-          ))}
+          {topArtists.length ? (
+            topArtists.map((band, index) => (
+              <Card
+                item={band}
+                key={band.id}
+                index={index + 1}
+                onCardClick={onCardClick}
+                onCardLike={onCardLike}
+              />
+            ))
+          ) : (
+            <div>Looks like you need to listen to a little more music!</div>
+          )}
         </section>
       )}
       {activeTab === "tracks" && (
         <section className="main__wrapper tracks">
-          {topTracks.map((track, index) => (
-            <SongCard
-              item={track}
-              key={track.id}
-              index={index + 1}
-              onCardClick={onCardClick}
-            />
-          ))}
+          {topTracks.length ? (
+            topTracks.map((track, index) => (
+              <SongCard
+                item={track}
+                key={track.id}
+                index={index + 1}
+                onCardClick={onCardClick}
+              />
+            ))
+          ) : (
+            <div>Looks like you need to listen to a little more music!</div>
+          )}
         </section>
       )}
     </main>

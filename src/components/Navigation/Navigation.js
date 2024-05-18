@@ -5,6 +5,7 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import placeholderAvatar from "../../images/placeholder_avatar.png";
 
 const barsIcon = <FontAwesomeIcon icon={faBars} />;
 const closeIcon = <FontAwesomeIcon icon={faX} />;
@@ -66,7 +67,11 @@ function Navigation({
             >
               <div className="nav__avatar-wrapper">
                 <img
-                  src={currentUser.currentUser.images?.[0].url}
+                  src={
+                    currentUser.currentUser.images?.[0]
+                      ? currentUser.currentUser.images?.[0].url
+                      : placeholderAvatar
+                  }
                   alt={currentUser.currentUser.display_name}
                   className="nav__avatar"
                 />
