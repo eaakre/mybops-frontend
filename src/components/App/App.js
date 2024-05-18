@@ -11,7 +11,6 @@ import Preloader from "../Preloader/Preloader.js";
 import PreviewModal from "../PreviewModal/PreviewModal.js";
 import ConfirmModal from "../ConfirmModal/ConfirmModal.js";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
-import RegisterModal from "../RegisterModal/RegisterModal.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom/cjs/react-router-dom.js";
@@ -216,9 +215,6 @@ function App() {
           />
         )}
 
-        {activeModal === "signup" && (
-          <RegisterModal onClose={handleCloseModal} />
-        )}
         {activeModal === "signin" && (
           <LoginModal handleLogin={handleLogin} onClose={handleCloseModal} />
         )}

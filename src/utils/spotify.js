@@ -40,3 +40,13 @@ export const getTopTracks = (time) => {
     },
   });
 };
+
+export const getRelatedArtists = (id) => {
+  const access_token = localStorage.getItem("access_token");
+  return request(`${baseURL}/artists/${id}/related-artists`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    },
+  });
+};

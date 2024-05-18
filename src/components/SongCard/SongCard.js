@@ -6,6 +6,7 @@ function SongCard({ item, index, onCardClick }) {
       <a
         href={item.external_urls.spotify}
         target="_blank"
+        rel="noreferrer"
         className="songcard__link"
       >
         <div className="songcard__info">

@@ -1,5 +1,5 @@
 import "./Navigation.css";
-import React, { useEffect } from "react";
+import React from "react";
 import LoginButton from "../LoginButton/LoginButton";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

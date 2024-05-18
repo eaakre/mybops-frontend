@@ -6,7 +6,7 @@ function Error() {
   return (
     <div className="error">
       Oh no! We've encountered an error!
-      <img src={errorImg} />
+      <img src={errorImg} alt="error" />
     </div>
   );
 }
