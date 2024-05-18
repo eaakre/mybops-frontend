@@ -11,7 +11,7 @@ const PreviewModal = ({ selectedCard, onClose }) => {
     };
     window.addEventListener("keydown", close);
     return () => window.removeEventListener("keydown", close);
-  }, []);
+  });
 
   return (
     <div className={`modal`}>

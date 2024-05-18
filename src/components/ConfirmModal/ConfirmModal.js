@@ -16,7 +16,7 @@ const ConfirmModal = ({ onClose, handleLogout }) => {
     };
     window.addEventListener("keydown", close);
     return () => window.removeEventListener("keydown", close);
-  }, []);
+  });
 
   return (
     <ModalWithForm
