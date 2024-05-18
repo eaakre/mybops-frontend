@@ -1,5 +1,8 @@
 # Link to Back-End for this project
 
+[Live Site](https://mybops.apps.dj/)
+Must have a Spotify Account to login.
+
 [myBops back-end](https://github.com/eaakre/mybops-backend/tree/stage-1.2)
 use the stage-1.2 branch at this point.
 
