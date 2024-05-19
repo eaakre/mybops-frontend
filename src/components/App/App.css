@@ -21,3 +21,14 @@ button {
   border-radius: 4px;
   padding: 5px 15px;
 }
+
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: #f3f3f3 solid 2px;
+  outline-offset: 0;
+  box-shadow: 0 0 0 4px #1d1d1d;
+  border-radius: 1px;
+}

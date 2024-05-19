@@ -12,6 +12,10 @@
   padding: 0 20px 0 0;
 }
 
+.header__logo-wrapper a {
+  display: flex;
+}
+
 .header__logo-wrapper a.active {
   border-bottom: none;
 }
@@ -59,10 +63,6 @@
 }
 
 @media only screen and (max-width: 480px) {
-  .header__link-wrapper {
-    padding: 0 10px;
-  }
-
   .header__button {
     font-size: 20px;
     line-height: 24px;

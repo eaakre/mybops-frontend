@@ -17,7 +17,7 @@ const Header = ({
   code,
 }) => {
   return (
-    <div className="header">
+    <header className="header">
       <div className="header__logo-wrapper">
         <NavLink exact to="/about">
           <img src={myBopsLogo} alt="myBops logo" className="header__logo" />
@@ -38,7 +38,7 @@ const Header = ({
           code={code}
         />
       </div>
-    </div>
+    </header>
   );
 };
 

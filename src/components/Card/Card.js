@@ -20,9 +20,9 @@ function Card({ item, index, onCardClick, onCardLike }) {
         className="card__image"
       />
       <div className="card__title-wrapper">
-        <p className="card__title">
+        <h2 className="card__title">
           {index}. {item.name}
-        </p>
+        </h2>
         {/* Check to see if Spotify will allow likes outside of Spotify App */}
         {/* <button
           className="card__like-button"
