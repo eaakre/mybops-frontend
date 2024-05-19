@@ -1,0 +1,64 @@
+.songcard {
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  margin: 5px 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.songcard__link {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  text-decoration: none;
+  color: #000;
+}
+
+.songcard__info {
+  display: flex;
+  gap: 10px;
+}
+
+.songcard__image {
+  object-fit: cover;
+  width: 50px;
+  height: 50px;
+}
+
+.songcard__title {
+  margin: 0;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.songcard__subtitle {
+  font-size: 14px;
+  line-height: 18px;
+  margin: 0;
+  font-style: italic;
+}
+
+.songcard__album {
+  font-size: 14px;
+  line-height: 18px;
+  text-align: end;
+  margin: 0;
+  font-style: italic;
+}
+
+@media only screen and (max-width: 768px) {
+  .songcard__title {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .songcard__album {
+    display: none;
+  }
+}

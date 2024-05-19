@@ -1,0 +1,23 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 120px;
+  margin-top: 20px;
+  padding: 0 20px;
+  border-top: 2px solid #e6e8e650;
+}
+.footer__info {
+}
+.footer__text {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.footer__social {
+}
+
+.footer__spotify {
+  width: 70px;
+  padding: 11px;
+}
